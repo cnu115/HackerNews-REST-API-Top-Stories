@@ -1,13 +1,17 @@
-import { createStore,applyMiddleware,compose } from "redux";
+import { combineReducers, createStore,applyMiddleware,compose } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 import topStories from './reducer/topStoriesReducer';
+import comments from './reducer/topStoriesReducer'
 
+// const rootReducer = combineReducers({
+//     stories: topStories,
+//     comments: comments
+// })
 
 const store = createStore(topStories,compose(
     applyMiddleware(thunk,logger),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 ));
 
 export default store;
