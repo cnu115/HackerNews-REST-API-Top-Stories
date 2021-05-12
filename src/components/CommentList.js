@@ -12,7 +12,7 @@ const CommentList = (props) => {
             }).catch(e => {
                 console.log(e)
             })
-    }, [props.id])  
+    }, [])  
 
     const getCommentHtml = () => {
         if (!comments) return false;
@@ -25,6 +25,7 @@ const CommentList = (props) => {
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="user d-flex flex-row align-items-center"> 
                     <span>
+                        <small className="font-weight-bold text-primary">{comments.by} </small> 
                         <small className="font-weight-bold" dangerouslySetInnerHTML={{__html: comments.text}}/>
                     </span>
                 </div> 
